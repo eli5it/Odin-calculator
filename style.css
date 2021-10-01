@@ -70,6 +70,7 @@ div.calculator {
     background-color: #d6d6d6;
     margin-bottom: 10px;
     
+    
 
 }
 
@@ -78,6 +79,7 @@ div.calculator {
     margin-top: 0px;
     margin-bottom: 10px;
     min-height: 21px;
+    
 }
 .lower-text {
     font-size: 48px;
