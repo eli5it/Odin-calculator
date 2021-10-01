@@ -202,11 +202,12 @@ const add = function(a, b) {
     if (String(a).includes(".") || String(b).includes('.')) {
       a = parseFloat(a);
       b = parseFloat(b);
-    }
+    } else {a = parseFloat(a)
+            b = parseFloat(b)}
 
 
     if (operator == "+") {
-        return add(parseInt(a),parseInt(b));
+        return add(a, b);
     } else if (operator == "-") {
       return subtract(a, b);
     } else if (operator == 'x') {
