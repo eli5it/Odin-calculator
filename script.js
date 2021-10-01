@@ -200,6 +200,7 @@ const add = function(a, b) {
 
 
     if (String(a).includes(".") || String(b).includes('.')) {
+      console.log('contains .');
       a = parseFloat(a);
       b = parseFloat(b);
     } else {a = parseFloat(a)
