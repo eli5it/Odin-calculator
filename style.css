@@ -27,25 +27,72 @@ div.calculator {
     padding: 20px;
     margin: 40px;
     background-color: #656c7d;
+    width: 400px;
+    height: 480px;
+    display: flex;
 }
 
 .small {
-    padding: 25px;
+    padding: 20px;
 }
 
 .big {
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    
+    padding-top: 20px;
+    padding-bottom: 20px;
+    flex-basis: 50%;
+    text-align: center;
+}
+.big, .small {
+    font-size: 20px;
+}
+.middle-grid{ 
+    display: flex;
+    width: 100%;
+    margin-bottom: 4px;
+   
+}
+.middle-grid, .bottom-grid {
+    gap: 6px;
 }
 .bottom-grid {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    }
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+
 
 .screen {
-    padding-top: 70px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 12px;
+    padding-right: 15px;
     text-align: right;
+    background-color: #d6d6d6;
+    margin-bottom: 10px;
+    
+
+}
+
+.upper-text {
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    min-height: 21px;
+}
+.lower-text {
+    font-size: 48px;
+    margin: 0px;
+    min-height: 55px;
+    
+}
+
+
+
+.grid-container {
+    width: 100%;
+}
+
+button, .screen {
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
 }
