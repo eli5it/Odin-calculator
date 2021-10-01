@@ -79,6 +79,7 @@ div.calculator {
     margin-top: 0px;
     margin-bottom: 10px;
     min-height: 21px;
+    overflow-wrap: break-word;
     
 }
 .lower-text {
