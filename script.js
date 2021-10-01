@@ -99,10 +99,18 @@ const add = function(a, b) {
     }
 
   const updateScreen = function() {
-    bottomDisplay.textContent = bottomText;
+    bottomString = String(bottomText);
+    if (bottomString.length >= 13)
+      {bottomDisplay.textContent =(cutOffNum(bottomString))}
+      else {bottomDisplay.textContent = bottomText;}
     setTopText();
     topDisplay.textContent= topText;
   }
+  function cutOffNum(text) {
+    return text.slice(0, 14)
+  }
+    
+  
   const handleOperators = function() {
     if (topText== ''){
       topText = bottomText + userInput;
@@ -129,6 +137,7 @@ const add = function(a, b) {
   const handleNumbers = function() {
     if (bottomText == '0') {
       bottomText = userInput
+      console.log('bones magones')
     } else {bottomText += userInput}
     if (!containsOperator(topText) ||containsEqual()) {
       firstOperand += userInput
@@ -136,6 +145,13 @@ const add = function(a, b) {
      {secondOperand += userInput
       bottomText= secondOperand}
   } 
+  const handleDecimal = function() {
+    if (secondOperand== "" && containsOperator(topText) && (!String(bottomText).includes('.'))){
+      bottomText= userInput;
+    } else if ((!String(bottomText).includes('.'))) {
+      bottomText+= userInput;
+    }
+  }
 
 
   function containsOperator(text) {
@@ -148,7 +164,7 @@ const add = function(a, b) {
     return topText.includes('=') }
 
   const handleEqual = function() {
-    if (containsOperator(topText) && !containsEqual(topText)) {
+    if (containsOperator(topText) && !containsEqual(topText) && secondOperand !== "") {
       topText = topText + secondOperand + "=";
       result = operate(firstOperand, secondOperand, operationChoice);
       bottomText= result;
@@ -181,6 +197,14 @@ const add = function(a, b) {
   
 
   const operate = function(a, b, operator) {
+
+
+    if (String(a).includes(".") || String(b).includes('.')) {
+      a = parseFloat(a);
+      b = parseFloat(b);
+    }
+
+
     if (operator == "+") {
         return add(parseInt(a),parseInt(b));
     } else if (operator == "-") {
